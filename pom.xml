@@ -25,10 +25,83 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+     <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>6.9.8</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>4.6.0</version>
+</dependency>
+
   </dependencies>
+  <profiles>
+  <profile>
+  
+  
+  <build>
+  
+  <plugins>
+  <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M7</version>
+        <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>testng.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+       
+      </plugin>
+  </plugins>
+  </build>
+  </profile>
+  
+   <profile>
+   <id>project1</id> 
+<build> 
+  <plugins> 
+    <plugin> 
+    <groupId>org.apache.maven.plugins</groupId> 
+    <artifactId>maven-surefire-plugin</artifactId> 
+    <version>3.0.0-M7</version>
+    <configuration> 
+    <suiteXmlFiles>
+    <suiteXmlFile>testng_project1.xml</suiteXmlFile>
+    </suiteXmlFiles> 
+    </configuration> 
+    </plugin>
+   </plugins> 
+ </build>
+     </profile>
+   
+   <profile>
+   <id>project</id> 
+<build> 
+  <plugins> 
+    <plugin> 
+    <groupId>org.apache.maven.plugins</groupId> 
+    <artifactId>maven-surefire-plugin</artifactId> 
+    <version>3.0.0-M7</version>
+    <configuration> 
+    <suiteXmlFiles>
+    <suiteXmlFile>testng_project.xml</suiteXmlFile>
+    </suiteXmlFiles> 
+    </configuration> 
+    </plugin>
+   </plugins> 
+ </build>
+     </profile>
+  </profiles>
+  
 
   <build>
-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+    <pluginManagement>
+    <!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
         <plugin>
